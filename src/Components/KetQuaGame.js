@@ -3,16 +3,12 @@ import {connect} from 'react-redux'
 
 class KetQuaGame extends Component {
 
-    playGame = () => {
-
-    }
-
     render() {
         return (
             <div className="group-box-content text-center">
-                <div className="content">
-                    <span className="text-warning">
-                          {this.props.stateGame.mangMoTa[0].moTa}
+                <div className="content text-warning">
+                    <span>
+                          {this.props.stateGame.moTaKetQua}
                     </span>
                 </div>
                 <div className="content text-success">
@@ -36,7 +32,13 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-
+    return {
+        playGame: () => {
+            dispatch({
+                type: 'PLAY_GAME'
+            })
+        }
+    }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(KetQuaGame)

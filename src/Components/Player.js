@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 
 class Player extends Component {
+
     render() {
         return (
             <div className="group-box-left">
@@ -10,7 +11,7 @@ class Player extends Component {
                 </div>
                 <div className="option-click">
                     {this.props.stateGame.mangOanTuTi.map((item, index) => {
-                        return <button className="ml-4"><img src={item.hinhAnh} width={30} /></button>
+                        return <button onClick={() => {this.props.clickPlayer(item)}} className="ml-4"><img src={item.hinhAnh} width={30} /></button>
                     })}
                 </div>
             </div>
@@ -25,7 +26,14 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-
+    return {
+        clickPlayer: (banChon) => {
+            dispatch({
+                type: 'BAN_CHON',
+                banChon
+            })
+        }
+    }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Player)

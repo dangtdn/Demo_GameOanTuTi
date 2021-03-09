@@ -11,7 +11,7 @@ export default class OanTuTi extends Component {
                         <div className="col-4 d-flex justify-content-center align-self-end position-relative">
                                <Player/>
                         </div>
-                        <div className="col-4 d-flex justify-content-center">
+                        <div className="col-4 d-flex justify-content-center" width={360}>
                             <KetQuaGame/>
                         </div>
                         <div className="col-4 d-flex justify-content-center align-self-end">
