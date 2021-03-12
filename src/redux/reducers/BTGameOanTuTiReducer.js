@@ -22,11 +22,14 @@ export const gameReducer = (state=stateDefault,action) => {
             let numRandom = Math.floor(Math.random() * 3);
             state.mayChon = state.mangOanTuTi[numRandom];
 
+            return {...state};
+        }
+        case 'END_GAME':{           
             // Kiểm tra kết quả bàn thắng
             if(
-                state.banChon.ma === 'keo' && state.mayChon.ma === 'bao' ||
-                state.banChon.ma === 'bao' && state.mayChon.ma === 'bua' ||
-                state.banChon.ma === 'bua' && state.mayChon.ma === 'keo' 
+                (state.banChon.ma === 'keo' && state.mayChon.ma === 'bao') ||
+                (state.banChon.ma === 'bao' && state.mayChon.ma === 'bua') ||
+                (state.banChon.ma === 'bua' && state.mayChon.ma === 'keo') 
             ) {
                 state.moTaKetQua = "I'm iron man, I love you 3000!";
                 state.soBanThang += 1;
@@ -39,7 +42,6 @@ export const gameReducer = (state=stateDefault,action) => {
             state.tongSoBan += 1;
             return {...state};
         }
-
         default: return {...state}
     }
 }

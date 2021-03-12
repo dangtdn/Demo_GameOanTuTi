@@ -6,7 +6,7 @@ class KetQuaGame extends Component {
     render() {
         return (
             <div className="group-box-content text-center">
-                <div className="content text-warning">
+                <div className="content text-warning" style={{fontSize:'38px'}}>
                     <span>
                           {this.props.stateGame.moTaKetQua}
                     </span>
@@ -34,9 +34,23 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         playGame: () => {
-            dispatch({
-                type: 'PLAY_GAME'
-            })
+            let count = 0;
+            const random = setInterval(() => {
+                dispatch({
+                    type: 'PLAY_GAME'
+                })
+                count++;
+
+                if(count>10){
+                    clearInterval(random);
+                    dispatch({
+                        type: 'END_GAME'
+                    })
+                }
+            },200)
+            // dispatch({
+            //     type: 'PLAY_GAME'
+            // })
         }
     }
 }

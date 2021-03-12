@@ -6,7 +6,7 @@ class Player extends Component {
     render() {
         return (
             <div className="group-box-left">
-                <div className="click">
+                <div className="click-player">
                     <img src={this.props.stateGame.banChon.hinhAnh} width={"100%"} />
                 </div>
                 <div className="option-click">
